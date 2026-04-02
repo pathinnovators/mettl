@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!DOCTYPE html>  
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Live Monitoring | Bright Path</title>
+  <title>Live Monitoring</title>
 
   <style>
     body {
@@ -12,20 +12,31 @@
       background: #f4f6f9;
     }
 
-    /* HEADER */
-    .header {
-      background: #0047AB;
+    /* TOP BAR (WARNING + TIMER) */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      background: #d9534f;
       color: white;
-      text-align: center;
-      padding: 15px;
-      font-size: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
       font-weight: bold;
+      z-index: 1000;
+      font-size: 14px;
     }
 
-    /* VIDEO SECTION */
+    .timer {
+      background: black;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    /* VIDEO */
     .video-container {
       width: 95%;
-      margin: 20px auto;
+      margin: 15px auto;
       position: relative;
       background: black;
       border-radius: 10px;
@@ -38,94 +49,169 @@
       border: none;
     }
 
-    /* BLACK RIBBON */
     .ribbon {
       position: absolute;
       top: 0;
-      left: 0;
       width: 100%;
       background: rgba(0,0,0,0.85);
       color: white;
-      padding: 10px;
-      font-size: 14px;
+      padding: 8px;
       text-align: center;
       z-index: 10;
-      letter-spacing: 1px;
+      font-size: 13px;
     }
 
-    /* IMAGE SECTION */
+    /* INSTRUCTIONS */
+    .instructions {
+      width: 95%;
+      margin: 15px auto;
+      background: white;
+      padding: 18px;
+      border-radius: 10px;
+    }
+
+    .highlight-box {
+      background: #fff3cd;
+      border-left: 6px solid #ffc107;
+      padding: 12px;
+      margin-top: 12px;
+      border-radius: 8px;
+      font-weight: bold;
+      color: #856404;
+    }
+
+    /* IMAGES */
     .image-section {
       width: 95%;
-      margin: 20px auto;
+      margin: 15px auto;
     }
 
-    .image-title {
-      font-size: 18px;
-      margin-bottom: 10px;
-      font-weight: bold;
-      color: #333;
-    }
-
-    /* VERTICAL IMAGES */
     .image-list img {
       width: 100%;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
     }
 
-    .image-list img:hover {
-      transform: scale(1.02);
+    /* POPUP */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
     }
 
-    /* FOOTER */
-    .footer {
+    .popup-box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
       text-align: center;
-      padding: 10px;
-      font-size: 12px;
-      color: gray;
+      width: 80%;
+      max-width: 300px;
     }
+
+    .popup button {
+      margin-top: 10px;
+      padding: 8px 15px;
+      background: #d9534f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <div class="header">
-    Bright Path Innovators - Live Monitoring
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    ⚠️ Do not switch tabs or leave the screen
+    <div class="timer" id="timer">90:00</div>
   </div>
 
-  <!-- VIDEO SECTION -->
+  <!-- VIDEO -->
   <div class="video-container">
-
-    <!-- BLACK RIBBON -->
-    <div class="ribbon">
-      LIVE PROCTORING IN PROGRESS | DO NOT REFRESH OR CLOSE
-    </div>
-
+    <div class="ribbon">LIVE PROCTORING IN PROGRESS</div>
     <iframe src="https://vdo.ninja/?push=BdiKWhA&label=mettl"
-      allow="camera; microphone; fullscreen;">
-    </iframe>
-
+      allow="camera; microphone;"></iframe>
   </div>
 
-  <!-- IMAGE SECTION -->
-  <div class="image-section">
-    <div class="image-title">Instructions / Guidelines</div>
+  <!-- INSTRUCTIONS -->
+  <div class="instructions">
+    <h3>Instructions</h3>
+    <ul>
+      <li>Please remain close to the camera at all times until the examination is completed.</li>
+      <li>The test duration will be approximately 70 to 90 minutes.</li>
+      <li>Do not move away from the camera during the examination.</li>
+      <li>Do not open any other tabs or applications. This may result in disqualification.</li>
+    </ul>
 
-    <div class="image-list">
-      <img src="image1.jpg" alt="Instruction 1">
-      <img src="image2.jpg" alt="Instruction 2">
-      <img src="image3.jpg" alt="Instruction 3">
-      <img src="image4.jpg" alt="Instruction 4">
+    <div class="highlight-box">
+      Please scroll down and continue for 70 to 90 minutes, ensuring that you behave as if you are actively taking the test by carefully reading each question and selecting the appropriate answers.
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <div class="footer">
-    © 2026 Bright Path Innovators Pvt. Ltd.
+  <!-- IMAGES -->
+  <div class="image-section">
+    <div class="image-list">
+      <img src="1.jpg">
+      <img src="2.jpg">
+      <img src="3.jpg">
+      <img src="4.jpg">
+      <img src="5.jpg">
+      <img src="6.jpg">
+      <img src="7.jpg">
+      <img src="8.jpg">
+      <img src="9.jpg">
+      <img src="10.jpg">
+      <img src="11.jpg">
+      <img src="12.jpg">
+    </div>
   </div>
+
+  <!-- POPUP -->
+  <div class="popup" id="popup">
+    <div class="popup-box">
+      <h3>Warning!</h3>
+      <p>You switched tabs. This activity is monitored.</p>
+      <button onclick="closePopup()">Continue Test</button>
+    </div>
+  </div>
+
+  <script>
+    // TIMER (90 MIN)
+    let time = 90 * 60;
+    const timerEl = document.getElementById("timer");
+
+    setInterval(() => {
+      let min = Math.floor(time / 60);
+      let sec = time % 60;
+
+      timerEl.innerText = 
+        (min < 10 ? "0" + min : min) + ":" + 
+        (sec < 10 ? "0" + sec : sec);
+
+      if (time > 0) time--;
+    }, 1000);
+
+    // TAB SWITCH DETECTION
+    document.addEventListener("visibilitychange", function() {
+      if (document.hidden) {
+        document.getElementById("popup").style.display = "flex";
+      }
+    });
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
 
 </body>
 </html>
