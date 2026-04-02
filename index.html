@@ -1,4 +1,4 @@
-<!DOCTYPE html>   
+<!DOCTYPE html>    
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -12,30 +12,37 @@
       background: #f4f6f9;
     }
 
-    /* TIMER BOX (NEW POSITION) */
-    .timer-box {
+    /* CONTAINER COMMON */
+    .container {
       width: 95%;
+      margin: auto;
+    }
+
+    /* TIMER BOX */
+    .timer-box {
       margin: 15px auto;
       background: #d9534f;
       color: white;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 15px;
+      padding: 12px 15px;
       border-radius: 8px;
       font-weight: bold;
-      font-size: 14px;
+      font-size: 18px;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .timer {
-      background: black;
-      padding: 5px 10px;
+      background: green;
+      padding: 8px 16px;
       border-radius: 5px;
+      font-size: 18px;
     }
 
     /* VIDEO */
     .video-container {
-      width: 95%;
       margin: 15px auto;
       position: relative;
       background: black;
@@ -45,7 +52,9 @@
 
     iframe {
       width: 100%;
-      height: 500px;
+      height: 50vh; /* responsive height */
+      min-height: 250px;
+      max-height: 500px;
       border: none;
     }
 
@@ -53,21 +62,28 @@
       position: absolute;
       top: 0;
       width: 100%;
-      background: rgba(0,0,0,0.85);
+      background: rgb(2, 82, 20);
       color: white;
       padding: 8px;
       text-align: center;
       z-index: 10;
-      font-size: 13px;
+      font-weight: bold;
+      font-family: poppins, sans-serif;
+      font-size: 12px;
     }
 
     /* INSTRUCTIONS */
     .instructions {
-      width: 95%;
       margin: 15px auto;
       background: white;
-      padding: 18px;
+      font-family: poppins, sans-serif;
+      padding: 15px;
       border-radius: 10px;
+      font-size: 15px;
+    }
+
+    .instructions h3 {
+      margin-top: 0;
     }
 
     .highlight-box {
@@ -78,11 +94,11 @@
       border-radius: 8px;
       font-weight: bold;
       color: #856404;
+      font-size: 14px;
     }
 
     /* IMAGES */
     .image-section {
-      width: 95%;
       margin: 15px auto;
     }
 
@@ -104,6 +120,7 @@
       justify-content: center;
       align-items: center;
       z-index: 2000;
+      padding: 15px;
     }
 
     .popup-box {
@@ -111,13 +128,13 @@
       padding: 20px;
       border-radius: 10px;
       text-align: center;
-      width: 80%;
-      max-width: 300px;
+      width: 100%;
+      max-width: 320px;
     }
 
     .popup button {
       margin-top: 10px;
-      padding: 8px 15px;
+      padding: 10px 18px;
       background: #d9534f;
       color: white;
       border: none;
@@ -125,55 +142,92 @@
       cursor: pointer;
     }
 
+    /* 📱 MOBILE OPTIMIZATION */
+    @media (max-width: 600px) {
+      .timer-box {
+        flex-direction: column;
+        text-align: center;
+        font-size: 16px;
+      }
+
+      .timer {
+        font-size: 16px;
+        padding: 6px 12px;
+      }
+
+      iframe {
+        height: 35vh;
+      }
+
+      .instructions {
+        font-size: 14px;
+      }
+
+      .highlight-box {
+        font-size: 13px;
+      }
+    }
+
+    /* 📲 TABLET */
+    @media (min-width: 601px) and (max-width: 1024px) {
+      iframe {
+        height: 45vh;
+      }
+    }
+
   </style>
 </head>
 
 <body>
 
-  <!-- VIDEO -->
-  <div class="video-container">
-    <div class="ribbon">LIVE PROCTORING IN PROGRESS</div>
-    <iframe src="https://vdo.ninja/?push=DNQNhcC&label=test_link_3&aspectratio=1.77777"
-      allow="camera; microphone;"></iframe>
-  </div>
+  <div class="container">
 
-  <!-- TIMER (MOVED HERE) -->
-  <div class="timer-box">
-    ⚠️ Do not switch tabs or leave the screen
-    <div class="timer" id="timer">90:00</div>
-  </div>
-
-  <!-- INSTRUCTIONS -->
-  <div class="instructions">
-    <h3>Instructions</h3>
-    <ul>
-      <li>Please remain close to the camera at all times until the examination is completed.</li>
-      <li>The test duration will be approximately 70 to 90 minutes.</li>
-      <li>Do not move away from the camera during the examination.</li>
-      <li>Do not open any other tabs or applications. This may result in disqualification.</li>
-    </ul>
-
-    <div class="highlight-box">
-      Please scroll down and continue for 70 to 90 minutes, ensuring that you behave as if you are actively taking the test by carefully reading each question and selecting the appropriate answers.
+    <!-- VIDEO -->
+    <div class="video-container">
+      <div class="ribbon">LIVE PROCTORING IN PROGRESS</div>
+      <iframe src="https://vdo.ninja/?push=DNQNhcC&label=test_link_3&aspectratio=1.77777"
+        allow="camera; microphone;"></iframe>
     </div>
-  </div>
 
-  <!-- IMAGES -->
-  <div class="image-section">
-    <div class="image-list">
-      <img src="1.jpg">
-      <img src="2.jpg">
-      <img src="3.jpg">
-      <img src="4.jpg">
-      <img src="5.jpg">
-      <img src="6.jpg">
-      <img src="7.jpg">
-      <img src="8.jpg">
-      <img src="9.jpg">
-      <img src="10.jpg">
-      <img src="11.jpg">
-      <img src="12.jpg">
+    <!-- TIMER -->
+    <div class="timer-box">
+      ⚠️ Do not switch tabs or leave the screen
+      <div class="timer" id="timer">90:00</div>
     </div>
+
+    <!-- INSTRUCTIONS -->
+    <div class="instructions">
+      <h3>Instructions</h3>
+      <ul>
+        <li>Please remain close to the camera at all times until the examination is completed.</li>
+        <li>The test duration will be approximately 70 to 90 minutes.</li>
+        <li>Do not move away from the camera during the examination.</li>
+        <li>Do not open any other tabs or applications. This may result in disqualification.</li>
+      </ul>
+
+      <div class="highlight-box">
+        Please scroll down and continue for 70 to 90 minutes, ensuring that you behave as if you are actively taking the test.
+      </div>
+    </div>
+
+    <!-- IMAGES -->
+    <div class="image-section">
+      <div class="image-list">
+        <img src="1.jpg">
+        <img src="2.jpg">
+        <img src="3.jpg">
+        <img src="4.jpg">
+        <img src="5.jpg">
+        <img src="6.jpg">
+        <img src="7.jpg">
+        <img src="8.jpg">
+        <img src="9.jpg">
+        <img src="10.jpg">
+        <img src="11.jpg">
+        <img src="12.jpg">
+      </div>
+    </div>
+
   </div>
 
   <!-- POPUP -->
@@ -186,8 +240,7 @@
   </div>
 
   <script>
-    // TIMER (120 MIN)
-    let time = 120 * 60;
+    let time = 90 * 60;
     const timerEl = document.getElementById("timer");
 
     setInterval(() => {
@@ -201,7 +254,6 @@
       if (time > 0) time--;
     }, 1000);
 
-    // TAB SWITCH DETECTION
     document.addEventListener("visibilitychange", function() {
       if (document.hidden) {
         document.getElementById("popup").style.display = "flex";
