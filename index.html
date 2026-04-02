@@ -1,4 +1,4 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>   
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -12,18 +12,18 @@
       background: #f4f6f9;
     }
 
-    /* TOP BAR (WARNING + TIMER) */
-    .top-bar {
-      position: sticky;
-      top: 0;
+    /* TIMER BOX (NEW POSITION) */
+    .timer-box {
+      width: 95%;
+      margin: 15px auto;
       background: #d9534f;
       color: white;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 10px 15px;
+      border-radius: 8px;
       font-weight: bold;
-      z-index: 1000;
       font-size: 14px;
     }
 
@@ -130,17 +130,17 @@
 
 <body>
 
-  <!-- TOP BAR -->
-  <div class="top-bar">
-    ⚠️ Do not switch tabs or leave the screen
-    <div class="timer" id="timer">90:00</div>
-  </div>
-
   <!-- VIDEO -->
   <div class="video-container">
     <div class="ribbon">LIVE PROCTORING IN PROGRESS</div>
     <iframe src="https://vdo.ninja/?push=BdiKWhA&label=mettl"
       allow="camera; microphone;"></iframe>
+  </div>
+
+  <!-- TIMER (MOVED HERE) -->
+  <div class="timer-box">
+    ⚠️ Do not switch tabs or leave the screen
+    <div class="timer" id="timer">90:00</div>
   </div>
 
   <!-- INSTRUCTIONS -->
