@@ -186,8 +186,8 @@
   </div>
 
   <script>
-    // TIMER (90 MIN)
-    let time = 90 * 60;
+    // TIMER (100 MIN)
+    let time = 100 * 60;
     const timerEl = document.getElementById("timer");
 
     setInterval(() => {
