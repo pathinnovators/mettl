@@ -9,19 +9,19 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: poppins, sans-serif;
   background: #f4f6f9;
 }
 
 .container {
-  width: 95%;
-  max-width: 1400px;
+  width: 96%;
+  max-width: 1600px;
   margin: auto;
 }
 
-/* VIDEO - INCREASED SIZE */
+/* 🔥 VERY LARGE VIDEO */
 .video-container {
-  margin: 15px auto;
+  margin: 10px auto;
   position: relative;
   background: black;
   border-radius: 10px;
@@ -30,9 +30,9 @@ body {
 
 iframe {
   width: 100%;
-  height: 75vh;   /* 🔥 LARGE HEIGHT */
-  min-height: 400px;
-  max-height: 800px;
+  height: 85vh;   /* 🔥 EXTRA LARGE */
+  min-height: 450px;
+  max-height: 900px;
   border: none;
 }
 
@@ -42,10 +42,11 @@ iframe {
   width: 100%;
   background: rgb(2, 82, 20);
   color: white;
-  padding: 10px;
+  font-family: poppins, sans-serif;
+  padding: 12px;
   text-align: center;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 /* TIMER */
@@ -54,6 +55,7 @@ iframe {
   background: #d9534f;
   color: white;
   display: flex;
+  font-family: poppins, sans-serif;
   justify-content: space-between;
   align-items: center;
   padding: 12px 15px;
@@ -73,9 +75,9 @@ iframe {
 .instructions {
   margin: 15px auto;
   background: white;
+  font-family: poppins, sans-serif;
   padding: 15px;
   border-radius: 10px;
-  font-size: 15px;
 }
 
 .highlight-box {
@@ -83,16 +85,9 @@ iframe {
   border-left: 6px solid #ffc107;
   padding: 12px;
   margin-top: 12px;
+  font-family: poppins, sans-serif;
   border-radius: 8px;
   font-weight: bold;
-  color: #856404;
-}
-
-/* IMAGES */
-.image-list img {
-  width: 100%;
-  margin-bottom: 12px;
-  border-radius: 10px;
 }
 
 /* POPUP */
@@ -105,6 +100,7 @@ iframe {
   background: rgba(0,0,0,0.7);
   display: none;
   justify-content: center;
+  font-family: poppins, sans-serif;
   align-items: center;
   z-index: 2000;
   padding: 15px;
@@ -119,10 +115,30 @@ iframe {
   max-width: 320px;
 }
 
+.popup-box h3 {
+  color: red;   /* 🔴 RED WARNING TITLE */
+}
+
+.popup-box p {
+  color: red;   /* 🔴 RED WARNING TEXT */
+  font-weight: bold;
+}
+
+/* ✅ GREEN BUTTON */
+.popup button {
+  margin-top: 10px;
+  padding: 10px 18px;
+  background: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 /* 📱 MOBILE */
 @media (max-width: 600px) {
   iframe {
-    height: 50vh;   /* still large but fits mobile */
+    height: 60vh;
     min-height: 300px;
   }
 
@@ -136,7 +152,7 @@ iframe {
 /* 📲 TABLET */
 @media (min-width: 601px) and (max-width: 1024px) {
   iframe {
-    height: 65vh;
+    height: 75vh;
   }
 }
 
@@ -164,23 +180,17 @@ iframe {
   <div class="instructions">
     <h3>Instructions</h3>
     <ul>
-      <li>Please remain close to the camera at all times.</li>
+      <li>Your full face must remain visible on the camera at all times.</li>
+      <li>Scrolling down will not affect camera visibility. However, switching to another tab, app, or chatting may affect the camera and could lead to disqualification.</li>
       <li>Test duration: 70–90 minutes.</li>
-      <li>Do not leave the screen.</li>
-      <li>Switching tabs may disqualify you.</li>
+      <li>Do not switch tabs or leave the screen. Doing so may disqualify you.</li>
+      <li>Do not open or interact with WhatsApp notifications during the test. Doing so may affect your exam and lead to disqualification.</li>
+      <li>You must maintain privacy while taking the test.</li>
     </ul>
 
     <div class="highlight-box">
-      Continue scrolling and behave as if actively taking the test.
+      Scroll down and act like read. Behave as if you are actively taking the test.
     </div>
-  </div>
-
-  <!-- IMAGES -->
-  <div class="image-list">
-    <img src="1.jpg">
-    <img src="2.jpg">
-    <img src="3.jpg">
-    <img src="4.jpg">
   </div>
 
 </div>
@@ -188,14 +198,14 @@ iframe {
 <!-- POPUP -->
 <div class="popup" id="popup">
   <div class="popup-box">
-    <h3>Warning!</h3>
+    <h3>⚠️ Warning!</h3>
     <p>You switched tabs. This activity is monitored.</p>
     <button onclick="closePopup()">Continue Test</button>
   </div>
 </div>
 
 <script>
-let time = 120 * 60;
+let time = 90 * 60;
 const timerEl = document.getElementById("timer");
 
 setInterval(() => {
@@ -209,6 +219,7 @@ setInterval(() => {
   if (time > 0) time--;
 }, 1000);
 
+// TAB SWITCH DETECTION
 document.addEventListener("visibilitychange", function() {
   if (document.hidden) {
     document.getElementById("popup").style.display = "flex";
